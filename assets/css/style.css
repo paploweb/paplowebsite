@@ -1,0 +1,259 @@
+/* 
+ * PAPLO WEB - Premium Modern Full-Stack Portfolio
+ * Monochrome Palette: White, Black & Gray (Minimalist Luxury Developer Aesthetic)
+ */
+
+:root {
+  /* White, Black & Gray Monochrome Theme */
+  --bg-hero: #FAFAFA;
+  --bg-hero-alt: #F4F4F5;
+  --bg-base: #FFFFFF;
+  --bg-secondary: #F4F4F5;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-dark: #09090B;
+  --bg-terminal: #121214;
+
+  --border-light: #E4E4E7;
+  --border-subtle: #F4F4F5;
+  --border-dark: #27272A;
+  --border-focus: #09090B;
+
+  --text-primary: #09090B;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  --text-light: #A1A1AA;
+
+  --accent-black: #000000;
+  --accent-black-hover: #18181B;
+  --accent-gray-dark: #27272A;
+  --accent-gray-light: #F4F4F5;
+  --accent-gray-border: #E4E4E7;
+
+  --shadow-subtle: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Base Reset & Setup */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F4F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #A1A1AA;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525B;
+}
+
+/* Typography Helpers */
+.font-mono {
+  font-family: var(--font-mono);
+}
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Minimalist Monochrome Grid */
+.bg-mono-grid,
+.bg-warm-grid,
+.bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Monochrome Card Styles */
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E4E7;
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: #09090B;
+  box-shadow: 0 16px 35px -8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #E4E4E7;
+}
+
+/* Monochrome Logo Brackets */
+.logo-bracket {
+  display: inline-block;
+  color: #09090B;
+  transition: all 0.25s ease;
+}
+.brand-logo:hover .logo-bracket-left {
+  transform: translateX(-3px);
+}
+.brand-logo:hover .logo-bracket-right {
+  transform: translateX(3px);
+}
+
+/* Radar Pulse for Floating WhatsApp Button */
+@keyframes radarRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+.radar-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  background-color: #25D366;
+  animation: radarRing 2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cursor Blink for Typewriter */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink,
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.15em;
+  background-color: #000000;
+  animation: cursorBlink 0.9s infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+.typewriter-cursor-white {
+  display: inline-block;
+  width: 2px;
+  height: 1.15em;
+  background-color: #FFFFFF;
+  animation: cursorBlink 0.9s infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+/* Interactive Developer Terminal Window */
+.terminal-window {
+  background: #09090B;
+  border: 1px solid #27272A;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Architecture Flowchart Animated Connector */
+@keyframes flowDash {
+  from { stroke-dashoffset: 40; }
+  to { stroke-dashoffset: 0; }
+}
+.flow-line-animated {
+  stroke-dasharray: 6, 6;
+  animation: flowDash 1.2s linear infinite;
+}
+
+/* Flowchart Node Hover */
+.flow-node {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  background: #FFFFFF;
+  border: 1px solid #E4E4E7;
+}
+.flow-node:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #09090B;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.flow-node.active-node {
+  border-color: #09090B;
+  box-shadow: 0 0 0 2px #09090B;
+}
+
+/* Timeline Components */
+.timeline-dot {
+  position: relative;
+  transition: all 0.3s ease;
+  background-color: #09090B;
+}
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid #09090B;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.timeline-item:hover .timeline-dot::after {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Responsive Modal Backdrop */
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Custom Notification Toast */
+.toast-notice {
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast-notice.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Tech Badges */
+.tech-badge {
+  background: #F4F4F5;
+  border: 1px solid #E4E4E7;
+  color: #27272A;
+  transition: all 0.2s ease;
+}
+.tech-badge:hover {
+  background: #09090B;
+  border-color: #09090B;
+  color: #FFFFFF;
+}

@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>&lt;/&gt; PAPLO WEB | Full-Stack Web Developer &amp; UI/UX Engineer</title>
+  <meta name="description" content="Portfolio of PAPLO, Full-Stack Web Developer & UI/UX Engineer. Architecting modern, responsive, and high-performance web applications with 50+ completed projects.">
+  <meta name="keywords" content="PAPLO, PAPLO WEB, Full-Stack Developer, Web Developer, UI/UX Engineer, Next.js, Node.js, React, Tailwind CSS, E-Commerce, PostgreSQL, Redis">
+  <meta name="author" content="PAPLO">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="&lt;/&gt; PAPLO WEB | Full-Stack Web Developer &amp; UI/UX Engineer">
+  <meta property="og:description" content="Architecting Modern, Responsive, and High-Performance Web Applications. 50+ Web Development Projects Completed.">
+  <meta property="og:url" content="https://paploweb.dev">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              cyan: '#00E5FF',
+              blue: '#0070F3',
+              purple: '#7928CA',
+              dark: '#080B10',
+              card: 'rgba(13, 17, 23, 0.75)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/avatar.svg">
+</head>
+
+<body class="bg-white text-neutral-900 selection:bg-black selection:text-white">
+
+  <!-- Header / Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo flex items-center gap-2 group cursor-pointer text-neutral-900 text-lg sm:text-xl font-bold font-mono tracking-wider">
+        <span class="logo-bracket logo-bracket-left text-black font-extrabold text-2xl transition-all">&lt;</span>
+        <span class="text-neutral-400 font-bold transition-colors">/</span>
+        <span class="logo-bracket logo-bracket-right text-black font-extrabold text-2xl transition-all">&gt;</span>
+        <span class="font-extrabold tracking-widest text-lg sm:text-xl ml-1 text-black">PAPLO WEB</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden xl:flex items-center gap-6 text-sm font-semibold text-neutral-600 font-sans">
+        <a href="#home" class="desktop-nav-link hover:text-black transition-colors py-1">Home</a>
+        <a href="#services" class="desktop-nav-link hover:text-black transition-colors py-1">Services</a>
+        <a href="#about" class="desktop-nav-link hover:text-black transition-colors py-1">About</a>
+        <a href="#skills" class="desktop-nav-link hover:text-black transition-colors py-1">Skills</a>
+        <a href="#projects" class="desktop-nav-link hover:text-black transition-colors py-1">Projects (50+)</a>
+        <a href="#architecture" class="desktop-nav-link hover:text-black transition-colors py-1">Architecture</a>
+        <a href="#experience" class="desktop-nav-link hover:text-black transition-colors py-1">Experience</a>
+        <a href="#plans" class="desktop-nav-link hover:text-black transition-colors py-1">Plans &amp; Hosting</a>
+        <a href="#contact" class="desktop-nav-link hover:text-black transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Action Buttons Right -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Sound FX Button -->
+        <button id="sound-toggle-btn" title="Toggle Synthesized Audio Feedback" class="p-2.5 rounded-xl bg-neutral-50 hover:bg-neutral-100 text-neutral-700 hover:text-black border border-neutral-200 transition flex items-center gap-1.5 text-xs font-mono shadow-sm">
+          <svg id="sound-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>
+          <span id="sound-label" class="hidden md:inline">Audio</span>
+        </button>
+
+        <!-- Resume Download / View Button -->
+        <button class="open-resume-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold font-mono bg-black hover:bg-neutral-800 text-white border border-black transition flex items-center gap-1.5 shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Resume</span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="xl:hidden p-2 rounded-xl bg-neutral-100 text-neutral-800 hover:text-black border border-neutral-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out xl:hidden flex justify-end">
+    <div class="fixed inset-0 bg-black/40 backdrop-blur-sm" id="mobile-menu-close"></div>
+    <div class="relative w-72 max-w-full bg-white h-full p-6 border-l border-neutral-200 flex flex-col justify-between z-10 shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-neutral-200">
+          <span class="font-mono font-bold text-black">&lt;/&gt; PAPLO WEB</span>
+          <button class="text-neutral-500 hover:text-black" onclick="document.getElementById('mobile-menu-close').click()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4 mt-6 font-mono text-sm">
+          <a href="#home" class="mobile-nav-link text-neutral-700 hover:text-black py-2 border-b border-neutral-100">01 // Home</a>
+          <a href="#services" class="mobile-nav-link text-neutral-700 hover:text-black py-2 border-b border-neutral-100">02 // Services</a>
+          <a href="#about" class="mobile-nav-link text-neutral-700 hover:text-black py-2 border-b border-neutral-100">03 // About</a>
+          <a href="#skills" class="mobile-nav-link text-neutral-700 hover:text-black py-2 border-b border-neutral-100">04 // Skills</a>
+          <a href="#projects" class="mobile-nav-link text-neutral-700 hover:text-black py-2 border-b border-neutral-100">05 // Projects (50+)</a>
+          <a href="#architecture" class="mobile-nav-link text-neutral-700 hover:text-black py-2 border-b border-neutral-100">06 // Architecture</a>
+          <a href="#experience" class="mobile-nav-link text-neutral-700 hover:text-black py-2 border-b border-neutral-100">07 // Experience</a>
+          <a href="#plans" class="mobile-nav-link text-neutral-700 hover:text-black py-2 border-b border-neutral-100">08 // Plans &amp; Hosting</a>
+          <a href="#contact" class="mobile-nav-link text-neutral-700 hover:text-black py-2">09 // Contact</a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-neutral-200 space-y-3">
+        <a href="https://wa.me/20127811833?text=Hi%20PAPLO,%20I'd%20like%20to%20discuss%20a%20project." target="_blank" class="w-full py-2.5 rounded-full bg-[#25D366] hover:bg-[#1fb857] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition">
+          <span>Chat on WhatsApp</span>
+        </a>
+        <button class="open-resume-btn w-full py-2.5 rounded-full bg-neutral-100 hover:bg-black hover:text-white text-neutral-900 font-mono text-xs border border-neutral-300 transition">
+          View Printable CV
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION (Monochrome White, Black & Gray Theme with Typewriter Effect) -->
+    <section id="home" class="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-gradient-to-b from-neutral-50 via-white to-white border-b border-neutral-200 bg-mono-grid">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- HOLOGRAPHIC DIGITAL CODE VIDEO STRIP (Only here, plays dark cyber video with cyan data, disappears in 5 seconds) -->
+        <div id="holographic-intro-strip" class="w-full relative rounded-2xl overflow-hidden mb-6 border border-neutral-800 shadow-2xl transition-all duration-700 bg-black h-36 sm:h-44 md:h-48">
+          <video id="holographic-code-video" class="w-full h-full object-cover" autoplay muted loop playsinline preload="auto">
+            <source src="assets/video/holographic-code.mp4" type="video/mp4">
+          </video>
+          <!-- Subtle cyber scanlines & vignette overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none"></div>
+          <div class="absolute inset-0 border border-cyan-500/20 rounded-2xl pointer-events-none"></div>
+        </div>
+
+        <!-- Top Status Pill -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-900 text-xs font-mono font-bold mb-6 backdrop-blur-md shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-black animate-pulse"></span>
+          <span>AVAILABLE FOR NEW CONTRACTS &amp; PRODUCTION BUILDS</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Text Content (Left 7 Cols) -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Modern Bold Sans-Serif Headline -->
+            <div>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-sans text-black leading-[1.12]">
+                Engineering High-Performance Web Applications &amp; E-Commerce
+                <span class="block text-2xl sm:text-3xl font-bold text-neutral-600 mt-3 font-sans">
+                  تطوير مواقع وتطبيقات ويب فائقة السرعة بتصميم استثنائي
+                </span>
+              </h1>
+            </div>
+
+            <!-- Interactive Typewriter Headline Pill -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-neutral-100/90 border border-neutral-200 text-xs sm:text-sm font-mono text-neutral-900 shadow-sm flex items-center gap-2 flex-wrap">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+              <span class="font-bold text-black">hallo in web paplo</span>
+              <span class="text-neutral-400 font-bold">—</span>
+              <span id="hero-typewriter" class="text-neutral-700 font-medium"></span>
+              <span class="typewriter-cursor"></span>
+            </div>
+
+            <!-- Role & Subtitle -->
+            <div class="space-y-3">
+              <h2 class="text-lg sm:text-xl font-bold text-neutral-800 font-sans flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-black"></span>
+                <span>Full-Stack Web Developer &amp; UI/UX Architect</span>
+              </h2>
+              <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl font-sans">
+                I'm <strong class="text-black font-bold">PAPLO</strong>, the developer behind <strong class="text-black font-bold">&lt;/&gt; PAPLO WEB</strong>. Delivering bespoke e-commerce engines, high-converting digital landing pages, and scalable server workflows with sub-second paint times and clean code.
+              </p>
+            </div>
+
+            <!-- Call To Action Buttons (Rounded-Full / Half-Circular) -->
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-3">
+              <!-- Primary CTA (Black Pill) -->
+              <a href="https://wa.me/20127811833?text=Hi%20PAPLO,%20I'd%20like%20to%20discuss%20a%20project." target="_blank" class="rounded-full px-7 py-4 bg-black hover:bg-neutral-800 text-white font-extrabold text-sm tracking-wide shadow-xl shadow-black/10 transition flex items-center gap-2 group">
+                <span>Start a Project</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+
+              <!-- Packages CTA (View Packages) -->
+              <a href="#plans" class="rounded-full px-6 py-4 bg-white hover:bg-neutral-50 text-neutral-900 font-bold text-sm border border-neutral-300 shadow-sm transition flex items-center gap-2">
+                <span>View Packages</span>
+                <span class="text-neutral-500">📦</span>
+              </a>
+
+              <!-- Secondary CTA (Clean White Pill) -->
+              <a href="#projects" class="rounded-full px-6 py-4 bg-white hover:bg-neutral-50 text-neutral-900 font-bold text-sm border border-neutral-300 shadow-sm transition flex items-center gap-2">
+                <span>View 50+ Projects</span>
+                <span class="text-neutral-500">⚡</span>
+              </a>
+
+              <!-- Direct WhatsApp Pill -->
+              <a href="https://wa.me/20127811833" target="_blank" class="rounded-full px-6 py-4 bg-[#25D366] hover:bg-[#1fb857] text-white font-bold text-sm shadow-md transition flex items-center gap-2">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+
+            <!-- Metrics Banner (3 Key Stats in Black & Gray) -->
+            <div class="pt-8 border-t border-neutral-200 grid grid-cols-3 gap-4 text-center sm:text-left">
+              <div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-black font-mono">50+</div>
+                <div class="text-xs text-neutral-600 font-sans mt-0.5 font-medium">Projects Delivered</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-neutral-800 font-mono">100%</div>
+                <div class="text-xs text-neutral-600 font-sans mt-0.5 font-medium">Fluid Responsive</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-neutral-900 font-mono">&lt;45ms</div>
+                <div class="text-xs text-neutral-600 font-sans mt-0.5 font-medium">P99 Server Latency</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Interactive Developer Terminal & Typewriter Station (Right 5 Cols - Replaces Tablet Mockup) -->
+          <div class="lg:col-span-5 space-y-5">
+            
+            <!-- Terminal Window -->
+            <div class="terminal-window shadow-2xl relative">
+              <!-- Terminal Header Bar -->
+              <div class="bg-neutral-900 px-4 py-3 border-b border-neutral-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-[#FF5F56] inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#FFBD2E] inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#27C93F] inline-block"></span>
+                  <span class="ml-2 text-xs font-mono text-neutral-400">paplo@web: ~/portfolio</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-300 border border-neutral-700">bash</span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                </div>
+              </div>
+
+              <!-- Terminal Content Body -->
+              <div class="p-6 font-mono text-xs sm:text-sm space-y-4 text-neutral-300 bg-[#09090B] min-h-[300px] flex flex-col justify-between">
+                <div class="space-y-3">
+                  <!-- Command 1 -->
+                  <div class="flex items-center gap-2 text-neutral-400">
+                    <span class="text-neutral-500">$</span>
+                    <span class="text-white font-semibold">paplo --status</span>
+                  </div>
+                  <div class="text-neutral-400 pl-3.5 text-xs space-y-1 border-l-2 border-neutral-800">
+                    <div><span class="text-neutral-200 font-bold">Identity:</span> &lt;/&gt; PAPLO WEB (Full-Stack Engineer)</div>
+                    <div><span class="text-neutral-200 font-bold">Deliverables:</span> 50+ Web Applications Verified</div>
+                    <div><span class="text-neutral-200 font-bold">Availability:</span> Open for Production Contracts</div>
+                  </div>
+
+                  <!-- Command 2 with Typewriter output -->
+                  <div class="pt-2">
+                    <div class="flex items-center gap-2 text-neutral-400 mb-2">
+                      <span class="text-neutral-500">$</span>
+                      <span class="text-white font-semibold">run greeting.sh</span>
+                    </div>
+
+                    <!-- Highlighted Interactive Typewriter Banner -->
+                    <div class="p-4 rounded-xl bg-neutral-900/90 border border-neutral-700/80 shadow-inner">
+                      <div class="text-[10px] text-neutral-400 mb-1.5 flex items-center justify-between font-mono">
+                        <span class="text-emerald-400 font-bold">● LIVE TRANSMISSION</span>
+                        <span class="text-[10px] text-neutral-500">Interactive Typing</span>
+                      </div>
+                      <div class="text-sm sm:text-base font-mono font-bold text-white leading-relaxed">
+                        <span class="text-emerald-400 font-extrabold">hallo in web paplo</span>
+                        <span class="text-neutral-400 font-bold"> — </span>
+                        <span id="terminal-typewriter-text" class="text-neutral-100"></span>
+                        <span class="typewriter-cursor-white"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Terminal Footer Status & Replay Control -->
+                <div class="pt-3 border-t border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-400">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-emerald-400">✓</span>
+                    <span>System nominal (P99 &lt;45ms)</span>
+                  </div>
+                  <button id="replay-typewriter-btn" class="hover:text-white transition flex items-center gap-1 px-2.5 py-1 rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-300 font-mono text-xs shadow-sm">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    <span>Replay</span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Developer Identity Badge under terminal -->
+            <div class="p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm flex items-center gap-4">
+              <div class="w-14 h-14 rounded-xl p-0.5 bg-neutral-900 flex-shrink-0 shadow-md">
+                <img src="assets/img/paplo-brand.png" alt="PAPLO WEB Brand" class="w-full h-full object-cover rounded-[10px]">
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-[11px] font-mono text-black font-bold uppercase">&lt;/&gt; PAPLO WEB IDENTITY</div>
+                <div class="text-sm font-bold text-neutral-900 truncate">Lead Full-Stack Web Architect</div>
+                <div class="text-xs text-neutral-500 font-mono">Proof of Work: <span class="text-black font-bold">50+ Projects</span></div>
+              </div>
+              <div class="text-xs font-mono font-bold text-neutral-800 bg-neutral-100 px-3 py-1.5 rounded-xl border border-neutral-200 flex-shrink-0 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>Verified Architect</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Hero Bottom Feature Cards (Monochrome White/Black/Gray with Subtle Box Shadows) -->
+        <div class="mt-16 pt-10 border-t border-neutral-200 grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Feature 1: Modern Services -->
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 hover:border-black shadow-sm hover:shadow-md transition flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 flex-shrink-0 shadow-sm group-hover:bg-black group-hover:text-white transition-all">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-neutral-900 mb-1 group-hover:text-black transition-colors">Modern Services</h3>
+              <p class="text-xs text-neutral-600 leading-relaxed">Full-stack web applications, custom e-commerce engines, and scalable microservices architected for business growth.</p>
+            </div>
+          </div>
+
+          <!-- Feature 2: Responsive Design -->
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 hover:border-black shadow-sm hover:shadow-md transition flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 flex-shrink-0 shadow-sm group-hover:bg-black group-hover:text-white transition-all">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-neutral-900 mb-1 group-hover:text-black transition-colors">Responsive Design</h3>
+              <p class="text-xs text-neutral-600 leading-relaxed">100% fluid mobile, tablet, and desktop layouts with sub-second initial paint and pixel-perfect touch interactions.</p>
+            </div>
+          </div>
+
+          <!-- Feature 3: Fast Performance -->
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 hover:border-black shadow-sm hover:shadow-md transition flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 flex-shrink-0 shadow-sm group-hover:bg-black group-hover:text-white transition-all">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-neutral-900 mb-1 group-hover:text-black transition-colors">Fast Performance</h3>
+              <p class="text-xs text-neutral-600 leading-relaxed">P99 sub-45ms API response latency, Redis in-memory acceleration, and 99/100 Google Lighthouse benchmarks.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES / FEATURES SECTION (Below the Fold: Monochrome White & Neutral Gray Theme) -->
+    <section id="services" class="py-24 bg-neutral-50 border-b border-neutral-200 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200/80 border border-neutral-300 text-neutral-900 text-xs font-mono font-bold">
+            <span>02 // SPECIALIZED SERVICES</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 font-sans tracking-tight">Engineered Web Solutions</h2>
+          <p class="text-neutral-600 text-sm sm:text-base leading-relaxed">
+            Delivering high-ROI software crafted with modern engineering standards, clean architecture, and sub-second performance.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Service 1: E-commerce Websites -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-sm hover:shadow-md hover:border-black transition group flex flex-col justify-between">
+            <div>
+              <!-- Illustration Showcase Frame -->
+              <div class="w-full h-52 rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-50 p-3 mb-5 flex items-center justify-center shadow-inner group-hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/img/service-ecommerce-store.png" alt="E-Commerce Storefront & Multi-Currency Checkout Illustration" class="w-full h-full object-contain">
+              </div>
+
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 group-hover:bg-black group-hover:text-white transition-all shadow-sm">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                </div>
+                <span class="text-xs font-mono text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200 font-bold">High Conversion</span>
+              </div>
+              <h3 class="text-xl font-bold text-neutral-900 group-hover:text-black transition-colors">E-commerce Websites</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed mt-2">
+                Fast, secure, and scalable online stores with automated payment gateway integrations. Includes instant inventory sync, cart abandonment reduction, and multi-currency checkouts.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-100 flex flex-wrap gap-2 text-xs font-mono text-neutral-700">
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">Stripe / PayPal</span>
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">Inventory Redis</span>
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">Sub-Second Checkout</span>
+            </div>
+          </div>
+
+          <!-- Service 2: High-Converting Landing Pages -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-sm hover:shadow-md hover:border-black transition group flex flex-col justify-between">
+            <div>
+              <!-- Illustration Showcase Frame -->
+              <div class="w-full h-52 rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-50 p-3 mb-5 flex items-center justify-center shadow-inner group-hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/img/service-landing-page.png" alt="High-Converting Landing Pages with 99+ Lighthouse score and conversion heatmaps" class="w-full h-full object-contain">
+              </div>
+
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 group-hover:bg-black group-hover:text-white transition-all shadow-sm">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <span class="text-xs font-mono text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200 font-bold">Speed &amp; SEO</span>
+              </div>
+              <h3 class="text-xl font-bold text-neutral-900 group-hover:text-black transition-colors">High-Converting Landing Pages</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed mt-2">
+                High-converting, responsive landing pages designed to drive user engagement. Tailored for PPC campaigns, SaaS launches, and product drops with 99+ Lighthouse performance scores.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-100 flex flex-wrap gap-2 text-xs font-mono text-neutral-700">
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">Micro-Animations</span>
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">0 Layout Shift</span>
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">Lead Capture Webhooks</span>
+            </div>
+          </div>
+
+          <!-- Service 3: Full-Stack Web Development -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-sm hover:shadow-md hover:border-black transition group flex flex-col justify-between">
+            <div>
+              <!-- Illustration Showcase Frame -->
+              <div class="w-full h-52 rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-50 p-3 mb-5 flex items-center justify-center shadow-inner group-hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/img/service-fullstack-architecture.png" alt="Full-Stack Web Development architecture with server, workstation, database, and docker" class="w-full h-full object-contain">
+              </div>
+
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 group-hover:bg-black group-hover:text-white transition-all shadow-sm">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                </div>
+                <span class="text-xs font-mono text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200 font-bold">End-to-End</span>
+              </div>
+              <h3 class="text-xl font-bold text-neutral-900 group-hover:text-black transition-colors">Full-Stack Web Development</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed mt-2">
+                Custom web applications with robust backend APIs, solid authentication, and database schemas. Architected for multi-tenancy, real-time WebSockets, and data integrity.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-100 flex flex-wrap gap-2 text-xs font-mono text-neutral-700">
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">Node &amp; Express</span>
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">Postgres / MongoDB</span>
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">Docker Containerization</span>
+            </div>
+          </div>
+
+          <!-- Service 4: Responsive Web Design & Redesign -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-sm hover:shadow-md hover:border-black transition group flex flex-col justify-between">
+            <div>
+              <!-- Multi-Device Showcase Frame -->
+              <div class="w-full h-52 rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-50 p-2 mb-5 flex items-center justify-center shadow-inner group-hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/img/responsive-showcase.png" alt="Multi-device responsive web mockup on MacBook and iPhone" class="w-full h-full object-cover rounded-xl">
+              </div>
+              
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 group-hover:bg-black group-hover:text-white transition-all shadow-sm">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                </div>
+                <span class="text-xs font-mono text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200 font-bold">Ultra Performance</span>
+              </div>
+              <h3 class="text-xl font-bold text-neutral-900 group-hover:text-black transition-colors">Responsive Redesign &amp; Speed</h3>
+              <p class="text-neutral-600 text-sm leading-relaxed mt-2">
+                Modernizing existing platforms with mobile-first fluid layouts and blazing speed. Upgrading clunky legacy codebases into sleek, modern, high-converting interfaces.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-neutral-100 flex flex-wrap gap-2 text-xs font-mono text-neutral-700">
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">Sub-Second Paint</span>
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">100% Mobile Fluid</span>
+              <span class="bg-neutral-100 px-3 py-1.5 rounded-lg border border-neutral-200 font-medium">P99 &lt;45ms Latency</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT ME & PHILOSOPHY -->
+    <section id="about" class="py-24 bg-white border-t border-neutral-200 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-900 text-xs font-mono font-bold">
+            <span>03 // PHILOSOPHY &amp; CRAFTSMANSHIP</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 font-sans tracking-tight">About Me</h2>
+          <p class="text-neutral-600 text-base sm:text-lg leading-relaxed">
+            Architecting modern, responsive, and high-performance web applications with clean code and zero downtime.
+          </p>
+        </div>
+
+        <!-- Developer Profile & Philosophy Showcase with Real Photo -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+          <!-- Developer Workstation Photo -->
+          <div class="lg:col-span-5 relative group">
+            <div class="relative rounded-3xl overflow-hidden border-2 border-neutral-300 shadow-2xl shadow-black/5">
+              <img src="assets/img/paplo-developer.png" alt="PAPLO - Full-Stack Developer at Work" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                <div>
+                  <div class="text-[11px] font-mono text-neutral-300 font-bold uppercase">PAPLO at Work</div>
+                  <div class="text-sm font-bold text-white">Full-Stack Architect &amp; UI/UX</div>
+                </div>
+                <div class="flex items-center gap-1.5 bg-neutral-800/90 text-neutral-200 border border-neutral-700 px-3 py-1 rounded-full text-xs font-mono backdrop-blur-md">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Active &amp; Available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Philosophy & Mission Story -->
+          <div class="lg:col-span-7 space-y-5">
+            <div class="rounded-3xl p-6 sm:p-8 bg-neutral-50 border border-neutral-200 space-y-4 shadow-sm">
+              <div class="flex items-center gap-2 text-xs font-mono text-black font-bold">
+                <span>&lt;PHILOSOPHY&gt;</span>
+                <span class="w-8 h-[1px] bg-neutral-300"></span>
+                <span>CLEAN ARCHITECTURE</span>
+              </div>
+              <h3 class="text-2xl font-bold text-neutral-900 font-sans">Engineering Systems with Purpose &amp; High Velocity</h3>
+              <p class="text-neutral-700 text-sm leading-relaxed">
+                “I’m <strong class="text-black font-bold">PAPLO</strong>, a passionate full-stack developer dedicated to building responsive, pixel-perfect user interfaces backed by scalable server architectures. I specialize in e-commerce websites, high-converting landing pages, and end-to-end full-stack systems.”
+              </p>
+              <p class="text-neutral-600 text-xs sm:text-sm leading-relaxed">
+                Every line of code I write is optimized for real business metrics: sub-second time-to-interactive, zero cumulative layout shift, seamless multi-platform responsiveness, and robust database architectures that scale effortlessly as your traffic spikes.
+              </p>
+              <div class="pt-3 border-t border-neutral-200 flex flex-wrap gap-4 text-xs font-mono text-neutral-700">
+                <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-neutral-200">
+                  <span class="text-black font-bold">50+</span>
+                  <span class="text-neutral-700 font-medium">Delivered Platforms</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-neutral-200">
+                  <span class="text-black font-bold">100%</span>
+                  <span class="text-neutral-700 font-medium">Clean Code</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-neutral-200">
+                  <span class="text-emerald-700 font-bold">0ms</span>
+                  <span class="text-neutral-700 font-medium">Downtime Target</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlights 3-Card Grid (Clean White Cards with Subtle Shadows) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 space-y-3 shadow-sm hover:border-black hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 font-mono text-xl shadow-sm">
+              ⚡
+            </div>
+            <h3 class="text-lg font-bold text-neutral-900">Pixel-Perfect UI/UX</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">
+              Transforming complex design ideas into hyper-responsive, fluid web applications with fluid typography and zero layout shift.
+            </p>
+          </div>
+
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 space-y-3 shadow-sm hover:border-black hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 font-mono text-xl shadow-sm">
+              🛡️
+            </div>
+            <h3 class="text-lg font-bold text-neutral-900">Resilient Server Backends</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">
+              Designing microservices with Node.js and Express, implementing JWT/OAuth authentication, and defending APIs with rate-limiters.
+            </p>
+          </div>
+
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 space-y-3 shadow-sm hover:border-black hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 font-mono text-xl shadow-sm">
+              🚀
+            </div>
+            <h3 class="text-lg font-bold text-neutral-900">50+ Battle-Tested Projects</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">
+              A proven track record of shipping production-grade platforms with sub-second response times, automated CI/CD, and 99.9% uptime.
+            </p>
+          </div>
+        </div>
+
+        <!-- ARCHITECTURE FLOWCHART -->
+        <div id="architecture" class="pt-8">
+          <div class="rounded-3xl p-6 sm:p-10 border border-neutral-200 shadow-md relative overflow-hidden bg-neutral-50">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 border-b border-neutral-200 pb-6">
+              <div>
+                <span class="text-xs font-mono text-black font-bold uppercase tracking-widest">End-to-End Infrastructure</span>
+                <h3 class="text-2xl font-bold text-neutral-900 font-sans mt-1">Backend System Design &amp; Flowchart</h3>
+                <p class="text-xs sm:text-sm text-neutral-600 mt-1">Click on any pipeline node to inspect real-time architectural specifications &amp; security metrics.</p>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-mono bg-neutral-100 text-neutral-800 px-3.5 py-1.5 rounded-xl border border-neutral-300 shadow-sm font-semibold">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                <span>Live Data Pipeline Active</span>
+              </div>
+            </div>
+
+            <!-- Network Graphic Preview Banner -->
+            <div class="mb-8 w-full h-28 sm:h-36 rounded-2xl overflow-hidden border border-neutral-300 relative shadow-md">
+              <img src="assets/img/cyber-network.png" alt="Cyber Network Pipeline" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
+              <div class="absolute inset-0 flex items-center p-5 sm:p-6">
+                <div class="max-w-md">
+                  <span class="text-[10px] font-mono text-neutral-200 uppercase tracking-widest bg-black/60 px-2.5 py-0.5 rounded-full border border-neutral-600 font-bold">DISTRIBUTED ARCHITECTURE</span>
+                  <h4 class="text-base sm:text-lg font-bold text-white mt-1.5">Zero Bottlenecks. 99.999% Fault Tolerant.</h4>
+                  <p class="text-xs text-neutral-300 mt-1 hidden sm:block">Microservices, Redis caching, and clustered database read-replicas handling high concurrency.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flowchart Nodes Diagram -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+              
+              <!-- Node 1: Client Interface -->
+              <div class="flow-node active-node rounded-2xl p-5 border border-neutral-200 relative z-10 bg-white hover:border-black transition cursor-pointer shadow-sm" data-node="client">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-100 text-neutral-900 border border-neutral-300 font-bold">LAYER 01</span>
+                  <span class="text-xs font-mono text-neutral-500">99/100 LCP</span>
+                </div>
+                <h4 class="text-base font-bold text-neutral-900">Client Interface</h4>
+                <p class="text-xs text-black font-mono mt-1 font-semibold">Next.js 14 / Tailwind CSS</p>
+                <p class="text-xs text-neutral-600 mt-2">Server components, SSR/SSG rendering, fluid responsive layouts &amp; accessible UI.</p>
+              </div>
+
+              <!-- Node 2: REST & GraphQL API Gateway -->
+              <div class="flow-node rounded-2xl p-5 border border-neutral-200 relative z-10 bg-white hover:border-black transition cursor-pointer shadow-sm" data-node="api">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-100 text-neutral-900 border border-neutral-300 font-bold">LAYER 02</span>
+                  <span class="text-xs font-mono text-neutral-500">45ms Latency</span>
+                </div>
+                <h4 class="text-base font-bold text-neutral-900">REST &amp; GraphQL APIs</h4>
+                <p class="text-xs text-black font-mono mt-1 font-semibold">Node.js / Express Gateway</p>
+                <p class="text-xs text-neutral-600 mt-2">JWT/OAuth authentication, Zod input validation, token-bucket rate limiting.</p>
+              </div>
+
+              <!-- Node 3: Caching & Database Layer -->
+              <div class="flow-node rounded-2xl p-5 border border-neutral-200 relative z-10 bg-white hover:border-black transition cursor-pointer shadow-sm" data-node="database">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-100 text-neutral-900 border border-neutral-300 font-bold">LAYER 03</span>
+                  <span class="text-xs font-mono text-neutral-500">99.999% ACID</span>
+                </div>
+                <h4 class="text-base font-bold text-neutral-900">Caching &amp; Databases</h4>
+                <p class="text-xs text-black font-mono mt-1 font-semibold">Redis, PostgreSQL, MongoDB</p>
+                <p class="text-xs text-neutral-600 mt-2">Sub-5ms in-memory cache, read-replicas, connection pooling, automated indexing.</p>
+              </div>
+
+              <!-- Node 4: Cloud Deployment & CI/CD -->
+              <div class="flow-node rounded-2xl p-5 border border-neutral-200 relative z-10 bg-white hover:border-black transition cursor-pointer shadow-sm" data-node="devops">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-100 text-neutral-900 border border-neutral-300 font-bold">LAYER 04</span>
+                  <span class="text-xs font-mono text-neutral-500">0 Downtime</span>
+                </div>
+                <h4 class="text-base font-bold text-neutral-900">Cloud &amp; CI/CD</h4>
+                <p class="text-xs text-black font-mono mt-1 font-semibold">Docker / GitHub Actions / AWS</p>
+                <p class="text-xs text-neutral-600 mt-2">Containerized microservices, automated regression tests, edge CDN distribution.</p>
+              </div>
+
+            </div>
+
+            <!-- Dynamic Node Details Inspector Box -->
+            <div class="mt-8 p-6 rounded-2xl bg-black border border-neutral-800 relative text-white shadow-xl">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4 mb-4">
+                <div>
+                  <h4 id="flow-detail-title" class="text-lg font-bold text-white font-mono">Client Interface Layer</h4>
+                  <div id="flow-detail-tech" class="text-xs text-neutral-300 font-mono">Next.js 14 / React / Tailwind CSS / TypeScript</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-[10px] font-mono uppercase text-neutral-400">Target Benchmark</div>
+                  <div id="flow-detail-metric" class="text-xs font-bold text-emerald-400 font-mono">99/100 Lighthouse Performance</div>
+                </div>
+              </div>
+
+              <div class="text-xs text-neutral-400 font-mono mb-2 uppercase tracking-wider" id="flow-detail-role">
+                User-facing presentation &amp; state management
+              </div>
+
+              <ul id="flow-detail-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+                <!-- Dynamically populated -->
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION (Monochrome Minimalist Arsenal) -->
+    <section id="skills" class="py-24 bg-neutral-50 border-t border-neutral-200 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200/80 border border-neutral-300 text-neutral-900 text-xs font-mono font-bold">
+            <span>03 // CORE CAPABILITIES</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 font-sans tracking-tight">Technical Arsenal</h2>
+          <p class="text-neutral-600 text-sm sm:text-base leading-relaxed">
+            Engineered through 50+ completed client implementations. Specialized in building fast, accessible, and scalable systems.
+          </p>
+        </div>
+
+        <!-- 4 Categorized Clean White Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Frontend -->
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 shadow-sm hover:border-black hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-5">
+                <div class="p-2.5 rounded-xl bg-neutral-100 text-neutral-900 border border-neutral-200 shadow-sm">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-neutral-900 text-base">Frontend</h3>
+                  <span class="text-xs font-mono text-neutral-500 font-semibold">Pixel-Perfect &amp; Fast</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">HTML5</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">CSS3</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">JavaScript (ES6+)</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">TypeScript</span>
+                <span class="bg-neutral-200/80 text-black font-bold px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-300">React</span>
+                <span class="bg-neutral-200/80 text-black font-bold px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-300">Next.js 14</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Tailwind CSS</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Responsive UI/UX</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Figma-to-Code</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend & Frameworks -->
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 shadow-sm hover:border-black hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-5">
+                <div class="p-2.5 rounded-xl bg-neutral-100 text-neutral-900 border border-neutral-200 shadow-sm">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-neutral-900 text-base">Backend</h3>
+                  <span class="text-xs font-mono text-neutral-500 font-semibold">Robust &amp; Concurrent</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-neutral-200/80 text-black font-bold px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-300">Node.js</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Express</span>
+                <span class="bg-neutral-200/80 text-black font-bold px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-300">REST APIs</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">GraphQL</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Serverless</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Microservices</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">JWT &amp; OAuth</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Databases & Storage -->
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 shadow-sm hover:border-black hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-5">
+                <div class="p-2.5 rounded-xl bg-neutral-100 text-neutral-900 border border-neutral-200 shadow-sm">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-neutral-900 text-base">Databases</h3>
+                  <span class="text-xs font-mono text-neutral-500 font-semibold">High-Performance</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-neutral-200/80 text-black font-bold px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-300">MongoDB</span>
+                <span class="bg-neutral-200/80 text-black font-bold px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-300">PostgreSQL</span>
+                <span class="bg-neutral-200/80 text-black font-bold px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-300">Redis</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Prisma ORM</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Query Tuning</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Data Caching</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & DevOps -->
+          <div class="rounded-2xl p-6 bg-white border border-neutral-200 shadow-sm hover:border-black hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-5">
+                <div class="p-2.5 rounded-xl bg-neutral-100 text-neutral-900 border border-neutral-200 shadow-sm">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-neutral-900 text-base">Tools &amp; DevOps</h3>
+                  <span class="text-xs font-mono text-neutral-500 font-semibold">Automated Pipeline</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Git &amp; GitHub</span>
+                <span class="bg-neutral-200/80 text-black font-bold px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-300">Docker</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Postman</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">CI/CD Pipelines</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Vercel &amp; Netlify</span>
+                <span class="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded-lg text-xs font-mono border border-neutral-200">Linux / Nginx</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS (50+ PROJECTS SHOWCASE) -->
+    <section id="projects" class="py-24 bg-white border-t border-neutral-200 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div class="space-y-3">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-900 text-xs font-mono font-bold">
+              <span>04 // PROOF OF WORK: 50+ COMPLETED PROJECTS</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 font-sans tracking-tight">Featured Project Portfolio</h2>
+            <p class="text-neutral-600 text-sm sm:text-base max-w-2xl leading-relaxed">
+              Engineered with clean code, sub-second latency, and fluid responsiveness. Each build solves genuine business bottlenecks.
+            </p>
+          </div>
+
+          <!-- Proof Badge Counter -->
+          <div class="rounded-2xl px-5 py-3 bg-neutral-50 border border-neutral-200 shadow-sm flex items-center gap-3 self-start md:self-auto">
+            <span class="w-3 h-3 rounded-full bg-black animate-ping"></span>
+            <div>
+              <div class="text-[10px] font-mono text-neutral-500 uppercase font-semibold">Production Catalog</div>
+              <div id="archive-proof-count" class="text-sm font-extrabold text-black font-mono">50+ Completed Projects</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proof Line Banner & Search Bar -->
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-neutral-200">
+          
+          <!-- 50+ Completed Projects Single Proof Line Banner -->
+          <div class="flex items-center gap-3 w-full lg:w-auto p-4 rounded-2xl bg-neutral-50 border border-neutral-200 shadow-sm">
+            <span class="flex h-3 w-3 relative flex-shrink-0">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-black"></span>
+            </span>
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm">
+              <span class="font-extrabold text-black font-mono tracking-wide">50+ Web Projects Completed</span>
+              <span class="text-neutral-300 hidden sm:inline">|</span>
+              <span class="text-neutral-800 font-medium font-sans">تم تنفيذ وتسليم أكثر من 50 مشروع ويب متكامل بنجاح بمختلف المجالات</span>
+            </div>
+          </div>
+
+          <!-- Search Input -->
+          <div class="relative w-full lg:w-80 flex-shrink-0">
+            <input type="text" id="project-search-input" placeholder="Search by tech or title..." class="w-full px-4 py-3 pl-10 rounded-xl bg-white border border-neutral-300 text-xs font-mono text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-black shadow-sm transition">
+            <svg class="w-4 h-4 text-neutral-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <span id="project-count-badge" class="absolute right-3 top-3 text-[10px] font-mono text-neutral-700 font-bold"></span>
+          </div>
+
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dynamically Injected by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & JOURNEY TIMELINE -->
+    <section id="experience" class="py-24 bg-neutral-50 border-t border-neutral-200 relative">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200/80 border border-neutral-300 text-neutral-900 text-xs font-mono font-bold">
+            <span>05 // CAREER TIMELINE</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 font-sans tracking-tight">Experience &amp; Journey</h2>
+          <p class="text-neutral-600 text-sm sm:text-base leading-relaxed">
+            Mapping PAPLO's journey through 50+ completed client projects, e-commerce rollouts, and production deployments.
+          </p>
+        </div>
+
+        <!-- Coding Workspace Visual Showcase Banner -->
+        <div class="mb-14 w-full h-36 sm:h-48 rounded-2xl overflow-hidden border border-neutral-300 relative shadow-md group">
+          <img src="assets/img/coding-workspace.png" alt="Developer hands typing code on mechanical keyboard with dual monitors" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] font-mono uppercase bg-black text-white px-3 py-1 rounded-full font-bold shadow-sm">50+ PRODUCTION BUILDS</span>
+              <div class="text-sm sm:text-base font-bold text-white mt-1">Built With Hands-On Precision &amp; Modern Workflows</div>
+            </div>
+            <span class="hidden sm:inline-block text-xs font-mono text-emerald-300 font-semibold bg-black/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10">100% Production Ready</span>
+          </div>
+        </div>
+
+        <!-- Vertical Interactive Timeline -->
+        <div class="relative border-l-2 border-neutral-300 ml-4 sm:ml-32 space-y-12">
+          
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item relative pl-8 group">
+            <!-- Timestamp / Badge on left for desktop -->
+            <div class="hidden sm:block absolute -left-36 top-1 text-right w-28">
+              <span class="text-xs font-mono text-black font-bold">2023 — PRESENT</span>
+              <div class="text-[11px] text-neutral-500 font-mono">Enterprise</div>
+            </div>
+
+            <!-- Bullet node -->
+            <div class="timeline-dot absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-black shadow-md shadow-black/20"></div>
+
+            <div class="rounded-2xl p-6 bg-white border border-neutral-200 group-hover:border-black transition space-y-2 shadow-sm">
+              <div class="sm:hidden text-xs font-mono text-black font-bold mb-1">2023 — PRESENT</div>
+              <h3 class="text-lg font-bold text-neutral-900">Principal Full-Stack Architect &amp; Founder</h3>
+              <div class="text-xs font-mono text-neutral-700 font-semibold">&lt;/&gt; PAPLO WEB • 50+ Milestones Achieved</div>
+              <p class="text-sm text-neutral-600 leading-relaxed pt-1">
+                Spearheaded full-stack development for high-growth startups and global commercial clients. Delivered custom e-commerce engines, low-latency microservices, and distributed cloud deployments. Surpassed 50 successfully launched production websites with 100% on-time delivery.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">Next.js 14</span>
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">Node.js</span>
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">Redis</span>
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item relative pl-8 group">
+            <div class="hidden sm:block absolute -left-36 top-1 text-right w-28">
+              <span class="text-xs font-mono text-neutral-800 font-bold">2022 — 2023</span>
+              <div class="text-[11px] text-neutral-500 font-mono">FinTech &amp; Scale</div>
+            </div>
+
+            <div class="timeline-dot absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-neutral-800 shadow-md shadow-neutral-800/20"></div>
+
+            <div class="rounded-2xl p-6 bg-white border border-neutral-200 group-hover:border-black transition space-y-2 shadow-sm">
+              <div class="sm:hidden text-xs font-mono text-neutral-800 font-bold mb-1">2022 — 2023</div>
+              <h3 class="text-lg font-bold text-neutral-900">Senior Frontend &amp; Backend Engineer</h3>
+              <div class="text-xs font-mono text-neutral-700 font-semibold">Digital Commerce &amp; SaaS Systems</div>
+              <p class="text-sm text-neutral-600 leading-relaxed pt-1">
+                Engineered real-time order dispatch platforms and multi-currency payment checkout integrations. Re-architected legacy SQL queries to reduce P99 database response times by 65%. Mentored junior developers in responsive UI testing and token security.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">React</span>
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">Express</span>
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">Stripe APIs</span>
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">Docker</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item relative pl-8 group">
+            <div class="hidden sm:block absolute -left-36 top-1 text-right w-28">
+              <span class="text-xs font-mono text-neutral-700 font-bold">2021 — 2022</span>
+              <div class="text-[11px] text-neutral-500 font-mono">Foundations</div>
+            </div>
+
+            <div class="timeline-dot absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-neutral-600 shadow-md shadow-neutral-600/20"></div>
+
+            <div class="rounded-2xl p-6 bg-white border border-neutral-200 group-hover:border-black transition space-y-2 shadow-sm">
+              <div class="sm:hidden text-xs font-mono text-neutral-700 font-bold mb-1">2021 — 2022</div>
+              <h3 class="text-lg font-bold text-neutral-900">Full-Stack Web Developer</h3>
+              <div class="text-xs font-mono text-neutral-700 font-semibold">High-Converting Landing Pages &amp; Portals</div>
+              <p class="text-sm text-neutral-600 leading-relaxed pt-1">
+                Created responsive landing pages and custom business portals with a focus on conversion rate optimization and SEO ranking. Shipped over 20 commercial sites with flawless cross-browser compatibility.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">JavaScript ES6+</span>
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">HTML5/CSS3</span>
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">REST APIs</span>
+                <span class="text-[11px] font-mono bg-neutral-100 text-neutral-700 border border-neutral-200 px-2.5 py-1 rounded-md font-medium">MongoDB</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOSTING & DOMAIN PLANS (SUBSCRIPTIONS) -->
+    <section id="plans" class="py-24 bg-white border-t border-neutral-200 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-900 text-xs font-mono font-bold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>06 // HOSTING &amp; DOMAIN SOLUTIONS</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 font-sans tracking-tight">
+            حلول الاستضافة وحجز النطاقات
+          </h2>
+          <p class="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            باقتان مخصصتان لتشغيل وإطلاق مشروعك أونلاين بأعلى سرعة وأمان؛ سواء كنت ترغب في حل شامل يتضمن شراء الدومين وإدارته، أو استضافة سحابية مستقلة وسريعة لموقعك.
+          </p>
+        </div>
+
+        <!-- 2 Plans Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+          
+          <!-- Plan 1: Domain For U & Host -->
+          <div class="relative bg-white rounded-3xl border-2 border-black p-7 sm:p-9 flex flex-col justify-between shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+            <!-- Popular Badge -->
+            <div class="absolute -top-3.5 right-6 sm:right-8 bg-black text-white text-[11px] font-mono font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+              <span>★</span>
+              <span>الحل المتكامل • Domain &amp; Host</span>
+            </div>
+
+            <div>
+              <!-- Plan Header -->
+              <div class="flex items-center justify-between gap-4 border-b border-neutral-100 pb-5 mb-6">
+                <div>
+                  <span class="text-xs font-mono text-neutral-500 font-bold uppercase tracking-wider block mb-1">Package 01</span>
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 font-sans">Domain For U &amp; Host</h3>
+                  <p class="text-xs sm:text-sm text-neutral-600 mt-1 font-medium">حجز الدومين باسمك + استضافة سحابية فائقة السرعة</p>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center shrink-0 shadow-md">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                </div>
+              </div>
+
+              <!-- Key Value Pitch -->
+              <p class="text-sm text-neutral-600 leading-relaxed mb-6 font-sans">
+                نوفر لك كل ما يحتاجه مشروعك للظهور أونلاين فوراً؛ نقوم بحجز النطاق الرسمي باسم نشاطك المخصص (.com / .net)، مع إعداد وربط استضافة سحابية عالية الأداء بدون أي صداع تقني.
+              </p>
+
+              <!-- Example Preview Box (test.com) -->
+              <div class="mb-6 p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
+                <div class="flex items-center justify-between text-xs font-mono text-neutral-500 mb-2">
+                  <span class="font-bold text-neutral-800 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    شكل الرابط (Custom Domain Included):
+                  </span>
+                  <span class="text-[11px] bg-neutral-200/70 text-neutral-800 font-mono px-2 py-0.5 rounded">test.com</span>
+                </div>
+                <!-- Mockup Browser Address Bar -->
+                <div class="flex items-center gap-2 bg-white border border-neutral-300 px-3.5 py-2.5 rounded-xl shadow-xs">
+                  <span class="text-emerald-600 font-bold text-xs">🔒 https://</span>
+                  <span class="text-black font-extrabold text-sm sm:text-base font-mono tracking-wide">test.com</span>
+                  <span class="ml-auto text-[10px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded hidden sm:inline">Direct Domain</span>
+                </div>
+                <p class="text-[11px] text-neutral-500 mt-2 font-sans">
+                  💡 موقعك يفتح مباشرة على دومينك المخصص الصريح (مثل <strong class="text-black font-mono">test.com</strong>) بدون أي نطاقات فرعية، مما يعزز الثقة والهوية التجارية لمشروعك.
+                </p>
+              </div>
+
+              <!-- Features Checklist -->
+              <div class="space-y-3 mb-8">
+                <div class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 mb-2">المميزات المضمنة في الباقة:</div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>حجز وإدارة الدومين:</strong> تسجيل النطاق المخصص باسمك بالكامل (.com / .net وغيرها).</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>استضافة سحابية سريعة:</strong> سيرفرات NVMe SSD مهيأة لأداء واستجابة فائقة السرعة.</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>شهادة SSL مجانية:</strong> تشفير كامل لبيانات الزوار وتفعيل قفل الأمان HTTPS تلقائياً.</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>بريد إلكتروني رسمي:</strong> إمكانية ربط إيميل احترافي باسم الدومين (info@test.com).</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>نسخ احتياطي وحماية:</strong> حماية دورية من الاختراق وهجمات الحرمان ونسخ احتياطي آمن.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Area (No price, direct WhatsApp) -->
+            <div class="pt-6 border-t border-neutral-100 space-y-3">
+              <div class="text-center text-xs font-mono text-neutral-500">
+                إطلاق سريع وربط مباشر خلال ساعات
+              </div>
+              <a href="https://wa.me/20127811833?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A8%D8%A7%D8%A8%D9%84%D9%88%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A8%D8%A7%D9%82%D8%A9%20Domain%20For%20U%20%26%20Host%20%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D9%8A." target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-full bg-[#25D366] hover:bg-[#1fa851] text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-[#25D366]/20 transition duration-200 group">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                <span>للتفاصيل كلمنا علي الواتس</span>
+                <span class="group-hover:translate-x-1 transition-transform">←</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Plan 2: Host Only -->
+          <div class="relative bg-white rounded-3xl border border-neutral-200 p-7 sm:p-9 flex flex-col justify-between shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-neutral-400 hover:-translate-y-1">
+            <!-- Secondary Badge -->
+            <div class="absolute -top-3.5 right-6 sm:right-8 bg-neutral-100 border border-neutral-300 text-neutral-800 text-[11px] font-mono font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+              <span>⚡</span>
+              <span>استضافة فقط • Host Only</span>
+            </div>
+
+            <div>
+              <!-- Plan Header -->
+              <div class="flex items-center justify-between gap-4 border-b border-neutral-100 pb-5 mb-6">
+                <div>
+                  <span class="text-xs font-mono text-neutral-500 font-bold uppercase tracking-wider block mb-1">Package 02</span>
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-neutral-900 font-sans">Host Only</h3>
+                  <p class="text-xs sm:text-sm text-neutral-600 mt-1 font-medium">استضافة سريعة لموقعك مع ربط دومينك الحالي أو نطاق فرعي</p>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-neutral-100 text-neutral-900 border border-neutral-200 flex items-center justify-center shrink-0 shadow-sm">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+                </div>
+              </div>
+
+              <!-- Key Value Pitch -->
+              <p class="text-sm text-neutral-600 leading-relaxed mb-6 font-sans">
+                الخيار الأنسب إذا كنت تمتلك دومينك بالفعل وتريد نقله أو تشغيله على استضافة سريعة ومستقرة، أو ترغب في إطلاق مشروعك على نطاق فرعي مخصص (Subdomain) بكل مرونة.
+              </p>
+
+              <!-- Example Preview Box (web.test.com) -->
+              <div class="mb-6 p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
+                <div class="flex items-center justify-between text-xs font-mono text-neutral-500 mb-2">
+                  <span class="font-bold text-neutral-800 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                    شكل الرابط (Host Only / Subdomain):
+                  </span>
+                  <span class="text-[11px] bg-neutral-200/70 text-neutral-800 font-mono px-2 py-0.5 rounded">web.test.com</span>
+                </div>
+                <!-- Mockup Browser Address Bar -->
+                <div class="flex items-center gap-2 bg-white border border-neutral-300 px-3.5 py-2.5 rounded-xl shadow-xs">
+                  <span class="text-blue-600 font-bold text-xs">🔒 https://</span>
+                  <span class="text-black font-extrabold text-sm sm:text-base font-mono tracking-wide">web.test.com</span>
+                  <span class="ml-auto text-[10px] font-mono text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded hidden sm:inline">Subdomain Hosting</span>
+                </div>
+                <p class="text-[11px] text-neutral-500 mt-2 font-sans">
+                  💡 في باقة الاستضافة فقط؛ يفتح موقعك على نطاق فرعي مثل <strong class="text-black font-mono">web.test.com</strong> أو نقوم بربط استضافتنا بنطاقك المخصص الذي تملكه أنت مسبقاً.
+                </p>
+              </div>
+
+              <!-- Features Checklist -->
+              <div class="space-y-3 mb-8">
+                <div class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400 mb-2">المميزات المضمنة في الباقة:</div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>سيرفر سحابي مخصص:</strong> بيئة استضافة سريعة محسنة لتقنيات الويب الحديثة.</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>ربط دومينك الخارجي (DNS):</strong> نوفر لك التوجيه الكامل لربط أي دومين تملكه باستضافتنا.</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>إمكانية النطاق الفرعي:</strong> تشغيل المشروع على Subdomain مخصص وسريع.</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>تشفير SSL تلقائي:</strong> تفعيل فوري لشهادات الأمان HTTPS بدون مصاريف إضافية.</span>
+                </div>
+                <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700">
+                  <span class="text-black font-bold text-base shrink-0 leading-none">✓</span>
+                  <span><strong>استقرار بنسبة 99.9%:</strong> مراقبة مستمرة للخدمة ودعم تقني للرفع والتشغيل.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Area (No price, direct WhatsApp) -->
+            <div class="pt-6 border-t border-neutral-100 space-y-3">
+              <div class="text-center text-xs font-mono text-neutral-500">
+                تهيئة وإعداد السيرفر ورفع الملفات بأعلى كفاءة
+              </div>
+              <a href="https://wa.me/20127811833?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A8%D8%A7%D8%A8%D9%84%D9%88%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A8%D8%A7%D9%82%D8%A9%20Host%20Only%20%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D9%8A." target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-full bg-black hover:bg-neutral-800 text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg transition duration-200 group">
+                <svg class="w-5 h-5 fill-[#25D366]" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                <span>للتفاصيل كلمنا علي الواتس</span>
+                <span class="group-hover:translate-x-1 transition-transform">←</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Clarification Banner / FAQ note -->
+        <div class="mt-12 max-w-4xl mx-auto p-6 rounded-2xl bg-neutral-50 border border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-black text-white flex items-center justify-center font-bold font-mono text-sm shrink-0">?</span>
+            <div>
+              <div class="font-bold text-sm sm:text-base text-neutral-900">مش متأكد أي باقة تختار لمشروعك؟</div>
+              <div class="text-xs text-neutral-600 mt-0.5">تواصل معنا وسنرشح لك الخيار الأنسب لحجم زوارك وطبيعة موقعك فوراً وبدون تردد.</div>
+            </div>
+          </div>
+          <a href="https://wa.me/20127811833?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A8%D8%A7%D8%A8%D9%84%D9%88%D8%8C%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%AD%D9%88%D9%84%20%D8%A7%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B6%D8%A7%D9%81%D8%A9%20%D9%88%D8%A7%D9%84%D8%AF%D9%88%D9%85%D9%8A%D9%86." target="_blank" rel="noopener noreferrer" class="shrink-0 px-6 py-3 rounded-full bg-white hover:bg-neutral-100 text-neutral-900 border border-neutral-300 font-bold text-xs font-mono transition shadow-sm">
+            استشارة سريعة عبر واتساب ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION (Monochrome with Direct WhatsApp Hub) -->
+    <section id="contact" class="py-24 bg-neutral-50 border-t border-neutral-200 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200/80 border border-neutral-300 text-neutral-900 text-xs font-mono font-bold">
+            <span>07 // START A CONVERSATION</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 font-sans tracking-tight">Let’s Work Together</h2>
+          <p class="text-neutral-600 text-sm sm:text-base leading-relaxed">
+            Have a project in mind? Let’s engineer something fast, modern, and scalable.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Direct Contact Info (Left 5 Cols) -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <div class="rounded-3xl p-6 sm:p-8 bg-neutral-50 border border-neutral-200 shadow-sm space-y-6">
+              <h3 class="text-xl font-bold text-neutral-900">Direct Contacts</h3>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Whether you need a brand-new e-commerce platform, an ultra-fast landing page, or a full-stack system rewrite, I'm ready to turn requirements into production code.
+              </p>
+
+              <!-- Phone / WhatsApp -->
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm">
+                <div class="p-3 rounded-xl bg-[#25D366]/20 text-[#25D366]">
+                  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-xs font-mono text-neutral-500">Phone / WhatsApp</div>
+                  <a href="https://wa.me/20127811833?text=Hi%20PAPLO,%20I'd%20like%20to%20discuss%20a%20project." target="_blank" class="text-sm font-bold text-neutral-900 hover:text-emerald-700 transition font-mono">
+                    0127811833 (+20 127 811 833)
+                  </a>
+                  <div class="text-[11px] text-emerald-700 font-mono mt-0.5 font-semibold">● Instant WhatsApp Chat Available</div>
+                </div>
+              </div>
+
+              <!-- Rapid Response Commitment -->
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm">
+                <div class="p-3 rounded-xl bg-neutral-100 text-neutral-800">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <div class="text-xs font-mono text-neutral-500">Response Speed</div>
+                  <div class="text-sm font-bold text-neutral-900 font-mono">Under 15 Minutes</div>
+                  <div class="text-[11px] text-neutral-500 font-mono mt-0.5">جاهز للرد الفوري ومناقشة متطلبات مشروعك مباشرة عبر واتساب</div>
+                </div>
+              </div>
+
+              <!-- Brand Identity -->
+              <div class="p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm">
+                <div class="text-xs font-mono text-black font-bold">&lt;/&gt; PAPLO WEB BRAND GUARANTEE</div>
+                <p class="text-xs text-neutral-600 mt-1 leading-relaxed font-sans">
+                  Clean modular architecture, 100% responsive fluid layouts, sub-second TTFB, and direct WhatsApp project communication throughout all development phases.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Direct WhatsApp Communication Hub (Right 7 Cols) -->
+          <div class="lg:col-span-7">
+            <div class="rounded-3xl p-6 sm:p-8 bg-neutral-50 border border-neutral-200 shadow-sm relative overflow-hidden">
+              
+              <!-- Direct WhatsApp Hub Header -->
+              <div class="flex items-center justify-between pb-6 border-b border-neutral-200 flex-wrap gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-2xl bg-[#25D366]/20 border border-[#25D366]/40 flex items-center justify-center text-[#25D366] shadow-md shadow-[#25D366]/15">
+                    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                      <span class="text-xs font-mono text-emerald-700 font-bold uppercase tracking-wider">Direct WhatsApp Terminal</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-neutral-900">تواصل مباشر وسريع عبر واتساب</h3>
+                  </div>
+                </div>
+
+                <div class="text-right">
+                  <div class="text-[11px] font-mono text-neutral-500 font-semibold">Official Direct Line</div>
+                  <div class="text-lg font-extrabold text-[#15803D] font-mono">0127811833</div>
+                </div>
+              </div>
+
+              <!-- Instant Description -->
+              <p class="text-xs sm:text-sm text-neutral-600 my-5 leading-relaxed">
+                لا داعي لانتظار الرد على الإيميل أو تعبئة النماذج. تواصل مع <strong class="text-black font-bold">PAPLO</strong> مباشرة على واتساب لبدء مناقشة مشروعك والحصول على استشارة فنية فورية وعرض سعر دقيق:
+              </p>
+
+              <!-- Quick Project Selection Tiles (One-Click WhatsApp) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                
+                <!-- Tile 1: E-Commerce -->
+                <a href="https://wa.me/20127811833?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A8%D8%A7%D8%A8%D9%84%D9%88%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D9%85%D8%AA%D8%AC%D8%B1%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%20%D8%B3%D8%B1%D9%8A%D8%B9%20E-Commerce" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white hover:bg-neutral-100 border border-neutral-200 hover:border-black transition group flex flex-col justify-between shadow-sm">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xl">🛍️</span>
+                    <span class="text-[11px] font-mono text-black font-bold opacity-0 group-hover:opacity-100 transition-opacity">WhatsApp ↗</span>
+                  </div>
+                  <div class="text-sm font-bold text-neutral-900 group-hover:text-black transition-colors">متجر إلكتروني متكامل</div>
+                  <div class="text-[11px] text-neutral-500 mt-1">منصة بيع سريعة مع بوابات دفع ولوحة تحكم</div>
+                </a>
+
+                <!-- Tile 2: Landing Page -->
+                <a href="https://wa.me/20127811833?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A8%D8%A7%D8%A8%D9%84%D9%88%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%B5%D9%81%D8%AD%D8%A9%20%D9%87%D8%A8%D9%88%D8%B7%20Landing%20Page%20%D8%B9%D8%A7%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AD%D9%88%D9%8A%D9%84" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white hover:bg-neutral-100 border border-neutral-200 hover:border-black transition group flex flex-col justify-between shadow-sm">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xl">⚡</span>
+                    <span class="text-[11px] font-mono text-black font-bold opacity-0 group-hover:opacity-100 transition-opacity">WhatsApp ↗</span>
+                  </div>
+                  <div class="text-sm font-bold text-neutral-900 group-hover:text-black transition-colors">صفحة هبوط تسويقية</div>
+                  <div class="text-[11px] text-neutral-500 mt-1">Landing Page فائقة السرعة لزيادة المبيعات</div>
+                </a>
+
+                <!-- Tile 3: Full-Stack Web App -->
+                <a href="https://wa.me/20127811833?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A8%D8%A7%D8%A8%D9%84%D9%88%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%81%D9%83%D8%B1%D8%A9%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D9%88%D9%8A%D8%A8%20Full-Stack%20%D9%85%D8%AA%D9%83%D8%A7%D9%85%D9%84" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white hover:bg-neutral-100 border border-neutral-200 hover:border-black transition group flex flex-col justify-between shadow-sm">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xl">🚀</span>
+                    <span class="text-[11px] font-mono text-black font-bold opacity-0 group-hover:opacity-100 transition-opacity">WhatsApp ↗</span>
+                  </div>
+                  <div class="text-sm font-bold text-neutral-900 group-hover:text-black transition-colors">تطبيق ويب Full-Stack</div>
+                  <div class="text-[11px] text-neutral-500 mt-1">نظام سحابي مخصص مع قواعد بيانات حديثة</div>
+                </a>
+
+                <!-- Tile 4: Redesign & Speed -->
+                <a href="https://wa.me/20127811833?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A8%D8%A7%D8%A8%D9%84%D9%88%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D9%88%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D9%85%D9%88%D9%82%D8%B9%20%D8%AD%D8%A7%D9%84%D9%8A%20%D9%88%D8%AA%D8%B3%D8%B1%D9%8A%D8%B9%D9%87" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-white hover:bg-neutral-100 border border-neutral-200 hover:border-black transition group flex flex-col justify-between shadow-sm">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xl">🎨</span>
+                    <span class="text-[11px] font-mono text-black font-bold opacity-0 group-hover:opacity-100 transition-opacity">WhatsApp ↗</span>
+                  </div>
+                  <div class="text-sm font-bold text-neutral-900 group-hover:text-black transition-colors">تجديد موقع وتسريعه</div>
+                  <div class="text-[11px] text-neutral-500 mt-1">تحسين واجهة المستخدم ورفع تقييم Lighthouse</div>
+                </a>
+
+              </div>
+
+              <!-- Main Primary Glowing WhatsApp Button -->
+              <div class="space-y-3">
+                <a href="https://wa.me/20127811833?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A8%D8%A7%D8%A8%D9%84%D9%88%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83%20%D8%AD%D9%88%D9%84%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%88%D9%8A%D8%A8%20%D8%AC%D8%AF%D9%8A%D8%AF." target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-full bg-[#25D366] hover:bg-[#1fa851] text-white font-extrabold text-base font-sans tracking-wide transition shadow-xl shadow-[#25D366]/25 flex items-center justify-center gap-3 group">
+                  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                  <span>محادثة واتساب فورية | Chat on WhatsApp</span>
+                  <span class="text-white group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+
+                <!-- Alternative Direct Phone Call & Fast Info -->
+                <div class="flex items-center justify-between text-xs font-mono text-neutral-500 pt-2 px-1">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>الرقم المباشر: <a href="tel:0127811833" class="text-neutral-900 hover:text-emerald-700 font-bold">0127811833</a></span>
+                  </div>
+                  <span class="text-emerald-700 font-semibold">● رد فوري خلال دقائق</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- STICKY FLOATING WHATSAPP BUTTON (Bottom-Right, Radar Pulse) -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center group">
+    <!-- Hover Tooltip -->
+    <div class="hidden sm:block absolute right-16 px-3 py-1.5 rounded-xl bg-black text-white text-xs font-mono border border-neutral-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-xl whitespace-nowrap">
+      Chat on WhatsApp <span class="text-[#25D366] font-bold">0127811833</span>
+    </div>
+
+    <!-- Pulsing Radar Rings & Main WhatsApp Floating Action Button -->
+    <a href="https://wa.me/20127811833?text=Hi%20PAPLO,%20I'd%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" class="relative w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300">
+      <!-- Radar pulse effect -->
+      <span class="radar-ring"></span>
+      <span class="radar-ring" style="animation-delay: 0.7s;"></span>
+
+      <!-- Official WhatsApp Icon -->
+      <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- FOOTER (Monochrome Midnight Minimalist) -->
+  <footer class="bg-black border-t border-neutral-800 text-neutral-200 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-neutral-800">
+        
+        <!-- Logo & Tagline (Left 5 Cols) -->
+        <div class="md:col-span-5 space-y-4">
+          <a href="#home" class="brand-logo inline-flex items-center gap-2 text-white font-mono text-xl font-bold tracking-wider">
+            <span class="logo-bracket text-white font-extrabold text-2xl">&lt;</span>
+            <span class="text-neutral-400 font-bold">/</span>
+            <span class="logo-bracket text-white font-extrabold text-2xl">&gt;</span>
+            <span class="text-white font-mono font-extrabold tracking-widest text-xl ml-1">PAPLO WEB</span>
+          </a>
+          <p class="text-neutral-400 text-sm leading-relaxed max-w-sm font-sans">
+            Full-Stack Web Developer | Scalable Architecture | Modern UI/UX. Delivering exceptional digital platforms with speed, precision, and clean code.
+          </p>
+          <div class="text-xs font-mono text-neutral-300 font-bold">
+            ✓ 50+ Web Development Projects Completed
+          </div>
+        </div>
+
+        <!-- Quick Navigation Links (Cols 6-8) -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-mono uppercase text-white font-bold tracking-widest">Navigation</h4>
+          <div class="grid grid-cols-2 gap-2 text-xs font-mono text-neutral-400">
+            <a href="#home" class="hover:text-white transition">Home</a>
+            <a href="#services" class="hover:text-white transition">Services</a>
+            <a href="#about" class="hover:text-white transition">About</a>
+            <a href="#skills" class="hover:text-white transition">Skills</a>
+            <a href="#projects" class="hover:text-white transition">Projects (50+)</a>
+            <a href="#architecture" class="hover:text-white transition">Architecture</a>
+            <a href="#experience" class="hover:text-white transition">Experience</a>
+            <a href="#plans" class="hover:text-white transition">Plans &amp; Hosting</a>
+            <a href="#contact" class="hover:text-white transition">Contact</a>
+          </div>
+        </div>
+
+        <!-- Direct Connect Channels (Cols 9-12) -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-mono uppercase text-white font-bold tracking-widest">Connect</h4>
+          <div class="space-y-2 text-xs font-mono text-neutral-400">
+            <div>
+              <span class="text-neutral-500">WhatsApp: </span>
+              <a href="https://wa.me/20127811833?text=Hi%20PAPLO,%20I'd%20like%20to%20discuss%20a%20project." target="_blank" class="text-[#25D366] font-bold hover:underline">0127811833</a>
+            </div>
+            <div>
+              <span class="text-neutral-500">GitHub: </span>
+              <span class="text-neutral-300 font-bold">paploweb</span>
+            </div>
+            <div>
+              <span class="text-neutral-500">Brand: </span>
+              <span class="text-neutral-300">&lt;/&gt; PAPLO WEB</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+        <div>
+          © 2024–2026 &lt;/&gt; PAPLO WEB. Engineered with precision &amp; modern code.
+        </div>
+        <div class="flex items-center gap-4">
+          <button class="open-resume-btn hover:text-white transition">Printable CV</button>
+          <span>•</span>
+          <a href="#home" class="hover:text-white transition">Back to Top ↑</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- POPUP CASE STUDY MODAL -->
+  <div id="project-detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 border border-neutral-200 text-neutral-900 relative shadow-2xl my-8">
+      <button class="close-modal-btn absolute top-6 right-6 p-2 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div id="project-modal-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUME / CV MODAL -->
+  <div id="resume-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-10 border border-neutral-200 text-neutral-900 relative shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
+      
+      <!-- Modal Close Button -->
+      <button class="close-modal-btn absolute top-6 right-6 p-2 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-600 hover:text-neutral-900 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Printable Resume Content -->
+      <div class="space-y-8" id="printable-resume-area">
+        
+        <!-- Header -->
+        <div class="border-b border-neutral-200 pb-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span class="text-xs font-mono text-black uppercase tracking-widest font-bold">&lt;/&gt; PAPLO WEB</span>
+              <h1 class="text-3xl font-extrabold text-neutral-900 mt-1">PAPLO</h1>
+              <p class="text-sm font-semibold text-neutral-700 font-mono">Full-Stack Web Developer &amp; UI/UX Architect</p>
+            </div>
+            <div class="text-xs font-mono text-neutral-600 space-y-1">
+              <div>WhatsApp: <strong class="text-neutral-900">0127811833</strong></div>
+              <div>GitHub: <strong class="text-neutral-900">paploweb</strong></div>
+              <div>Proof of Work: <strong class="text-emerald-700">50+ Projects</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-mono uppercase text-neutral-500 tracking-wider font-bold">Professional Summary</h3>
+          <p class="text-sm text-neutral-600 leading-relaxed font-sans">
+            Passionate full-stack developer dedicated to building responsive, pixel-perfect user interfaces backed by scalable server architectures. Specialized in e-commerce websites, high-converting landing pages, and end-to-end full-stack systems. Proven track record of architecting over 50 completed web development solutions with 99.9% uptime and sub-second latencies.
+          </p>
+        </div>
+
+        <!-- Skills Summary -->
+        <div class="space-y-3">
+          <h3 class="text-xs font-mono uppercase text-neutral-500 tracking-wider font-bold">Core Technical Proficiencies</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+            <div class="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200">
+              <span class="text-black font-bold">Frontend:</span> React, Next.js 14, TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Responsive UI/UX, Figma-to-Code.
+            </div>
+            <div class="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200">
+              <span class="text-neutral-900 font-bold">Backend:</span> Node.js, Express, REST APIs, GraphQL, Serverless Functions, JWT &amp; OAuth Authentication.
+            </div>
+            <div class="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200">
+              <span class="text-neutral-900 font-bold">Databases:</span> MongoDB, PostgreSQL, Redis 7, Prisma ORM, Query Optimization &amp; Caching.
+            </div>
+            <div class="p-3.5 rounded-xl bg-neutral-50 border border-neutral-200">
+              <span class="text-neutral-900 font-bold">Tools &amp; DevOps:</span> Git, GitHub, Docker, Postman, CI/CD pipelines, Vercel, Netlify, Nginx.
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Milestones -->
+        <div class="space-y-3">
+          <h3 class="text-xs font-mono uppercase text-neutral-500 tracking-wider font-bold">Selected Experience &amp; Deliverables</h3>
+          <div class="space-y-3 text-xs font-sans">
+            <div class="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-neutral-900 text-sm">Lead Full-Stack Architect • PAPLO WEB</span>
+                <span class="font-mono text-black font-bold">2023 — Present</span>
+              </div>
+              <p class="text-neutral-600">Engineered 50+ commercial web applications, custom headless e-commerce stores, and enterprise portals with sub-second page loads and zero layout shifts.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1">
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-neutral-900 text-sm">Full-Stack Engineer • Digital Solutions</span>
+                <span class="font-mono text-neutral-800 font-bold">2021 — 2023</span>
+              </div>
+              <p class="text-neutral-600">Developed high-concurrency Node.js REST API gateways with Redis token-bucket rate limiting and PostgreSQL connection pooling.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="pt-4 border-t border-neutral-200 flex items-center justify-between gap-4">
+          <button id="print-resume-btn" class="px-6 py-2.5 rounded-full bg-black hover:bg-neutral-800 text-white font-bold text-xs font-mono transition flex items-center gap-2 shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            <span>Print / Save as PDF</span>
+          </button>
+          <a href="https://wa.me/20127811833?text=Hi%20PAPLO,%20I%20reviewed%20your%20CV%20and%20want%20to%20hire%20you." target="_blank" class="px-6 py-2.5 rounded-full bg-[#25D366] hover:bg-[#1fa851] text-white font-bold text-xs font-mono shadow-sm transition">
+            Hire PAPLO on WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="contact-toast" class="toast-notice fixed bottom-6 left-6 z-50 max-w-md p-4 rounded-2xl bg-white border border-neutral-200 text-neutral-900 shadow-2xl flex items-center gap-3">
+    <div class="p-2 rounded-xl bg-neutral-100 text-neutral-900 flex-shrink-0">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <div id="contact-toast-msg" class="text-xs text-neutral-800 font-mono leading-relaxed"></div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="assets/js/projects-data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

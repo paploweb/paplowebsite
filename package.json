@@ -1,0 +1,17 @@
+{
+  "name": "paploweb-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of PAPLO - Full-Stack Web Developer and UI/UX Engineer",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npx serve dist"
+  },
+  "keywords": [
+    "portfolio",
+    "web-developer",
+    "full-stack",
+    "ui-ux"
+  ],
+  "author": "PAPLO",
+  "license": "MIT"
+}

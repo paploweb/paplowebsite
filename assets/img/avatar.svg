@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="50%" stop-color="#0070F3"/>
+      <stop offset="100%" stop-color="#7928CA"/>
+    </linearGradient>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="100%" stop-color="#05080E"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Circle with Cyber Hexagon Border -->
+  <circle cx="120" cy="120" r="115" fill="url(#bg-grad)" stroke="url(#cyber-grad)" stroke-width="3" filter="url(#glow)" opacity="0.9"/>
+  <circle cx="120" cy="120" r="105" fill="none" stroke="rgba(0, 229, 255, 0.2)" stroke-width="1.5" stroke-dasharray="6,6"/>
+
+  <!-- Glowing HUD Rings -->
+  <circle cx="120" cy="120" r="95" fill="none" stroke="rgba(121, 40, 202, 0.3)" stroke-width="1"/>
+
+  <!-- Developer Silhouette / Character with Cyber Headset & Glasses -->
+  <!-- Shoulders / Hoodie -->
+  <path d="M45,210 C45,170 75,150 120,150 C165,150 195,170 195,210 Z" fill="#121D33" stroke="rgba(0, 229, 255, 0.4)" stroke-width="2"/>
+  
+  <!-- Inner Collar / Shirt with Code Brackets Motif -->
+  <path d="M95,155 L120,185 L145,155 Z" fill="#1E293B" stroke="url(#cyber-grad)" stroke-width="1.5"/>
+
+  <!-- Neck -->
+  <rect x="108" y="125" width="24" height="28" rx="4" fill="#E2E8F0" opacity="0.9"/>
+
+  <!-- Head Base -->
+  <ellipse cx="120" cy="98" rx="38" ry="46" fill="#F1F5F9"/>
+
+  <!-- Hair / Modern Fade -->
+  <path d="M80,85 C80,50 98,40 120,40 C142,40 160,50 160,85 C155,75 145,68 135,68 C125,68 115,72 105,68 C95,65 85,75 80,85 Z" fill="#0F172A"/>
+
+  <!-- Cyber Visor / Smart Glasses -->
+  <rect x="86" y="86" width="68" height="22" rx="6" fill="#0B132B" stroke="#00E5FF" stroke-width="2" filter="url(#glow)"/>
+  <path d="M90,97 L150,97" stroke="#00E5FF" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <circle cx="102" cy="97" r="3" fill="#00E5FF"/>
+  <circle cx="138" cy="97" r="3" fill="#00E5FF"/>
+
+  <!-- Developer Headset / Audio Interface -->
+  <path d="M78,92 C74,92 72,98 72,105 C72,112 74,118 78,118 Z" fill="#00E5FF"/>
+  <path d="M162,92 C166,92 168,98 168,105 C168,112 166,118 162,118 Z" fill="#00E5FF"/>
+  <path d="M75,92 C75,55 165,55 165,92" fill="none" stroke="#64748B" stroke-width="3.5" stroke-linecap="round"/>
+  
+  <!-- Mic Extension -->
+  <path d="M74,112 Q70,130 90,132" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="92" cy="132" r="3" fill="#00E5FF" filter="url(#glow)"/>
+
+  <!-- Floating Binary / Code Particles -->
+  <text x="50" y="70" fill="#00E5FF" font-family="monospace" font-size="10" opacity="0.6">&lt;/&gt;</text>
+  <text x="180" y="75" fill="#7928CA" font-family="monospace" font-size="10" opacity="0.7">{ }</text>
+  <text x="35" y="145" fill="#00E5FF" font-family="monospace" font-size="9" opacity="0.5">0101</text>
+  <text x="190" y="145" fill="#00E5FF" font-family="monospace" font-size="9" opacity="0.5">1010</text>
+  <text x="100" y="222" fill="#00E5FF" font-family="monospace" font-weight="bold" font-size="9" letter-spacing="1">PAPLO</text>
+</svg>
