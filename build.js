@@ -34,4 +34,13 @@ if (fs.existsSync(redirectsSrc)) {
   console.log('✓ Created _redirects in dist');
 }
 
+// Copy robots.txt and sitemap.xml for SEO
+['robots.txt', 'sitemap.xml'].forEach(file => {
+  const fPath = path.join(srcDir, file);
+  if (fs.existsSync(fPath)) {
+    fs.copyFileSync(fPath, path.join(distDir, file));
+    console.log(`✓ Copied ${file}`);
+  }
+});
+
 console.log('✨ Production build completed successfully! Output folder: dist');

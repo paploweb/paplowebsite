@@ -1,0 +1,6 @@
+# Robots.txt for PAPLO WEB
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://paploweb.dev/sitemap.xml
