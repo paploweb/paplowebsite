@@ -644,7 +644,7 @@ class PortfolioApp {
                   <span>•</span>
                   <span>✓ P99: 34ms</span>
                 </div>
-                <a href="https://wa.me/20127811833?text=مرحباً%20بابلو،%20شاهدت%20كفاءة%20الكود%20وأريد%20البدء%20في%20مشروعي%20معك%20بثقة." target="_blank" class="w-full sm:w-auto px-4 py-2 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-slate-950 font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-105">
+                <a href="https://wa.me/201278111833?text=مرحباً%20بابلو،%20شاهدت%20كفاءة%20الكود%20وأريد%20البدء%20في%20مشروعي%20معك%20بثقة." target="_blank" class="w-full sm:w-auto px-4 py-2 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-slate-950 font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-105">
                   <span>تواصل مع PAPLO مباشرة لبدء مشروعك بثقة 💬</span>
                 </a>
               </div>
@@ -1068,7 +1068,7 @@ class PortfolioApp {
 
         // Show Toast with Direct WhatsApp Redirect Prompt
         const waText = encodeURIComponent(`Hi PAPLO, my name is ${name} (${email}). I want to discuss a ${projectType} project: ${message}`);
-        const waUrl = `https://wa.me/20127811833?text=${waText}`;
+        const waUrl = `https://wa.me/201278111833?text=${waText}`;
 
         this.showToast(`Thank you, ${name}! Your inquiry was recorded. <a href="${waUrl}" target="_blank" class="underline font-bold text-cyan-300 ml-1">Click to continue on WhatsApp ↗</a>`, "success", 7000);
       }, 800);
