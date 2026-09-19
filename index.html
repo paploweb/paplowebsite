@@ -300,6 +300,10 @@
   <main>
     <!-- HERO SECTION -->
     <section id="home" class="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-gradient-to-b from-neutral-50 via-white to-white dark:from-[#09090B] dark:via-[#09090B] dark:to-[#121215] border-b border-neutral-200 dark:border-neutral-800 bg-mono-grid">
+      
+      <!-- Interactive 3D Particle Sphere Canvas Background -->
+      <canvas id="hero-particle-sphere" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80 dark:opacity-90 transition-opacity duration-500"></canvas>
+
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <!-- Top Status Pill -->
@@ -321,7 +325,7 @@
             </div>
 
             <!-- Interactive Typewriter Headline Pill -->
-            <div class="p-3.5 sm:p-4 rounded-2xl bg-neutral-100/90 dark:bg-[#121215] border border-neutral-200 dark:border-neutral-800 text-xs sm:text-sm font-mono text-neutral-900 dark:text-neutral-200 shadow-sm flex items-center gap-2 flex-wrap">
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-neutral-100/80 dark:bg-[#121215]/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 text-xs sm:text-sm font-mono text-neutral-900 dark:text-neutral-200 shadow-sm flex items-center gap-2 flex-wrap">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
               <span class="font-bold text-black dark:text-white">hallo in web paplo</span>
               <span class="text-neutral-400 font-bold">—</span>
