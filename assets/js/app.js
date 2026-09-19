@@ -231,6 +231,7 @@ class PortfolioApp {
     this.initI18n();
     this.initSoundEngine();
     this.initTypewriter();
+    this.initParticleSphere();
     this.initProjects();
     this.initModals();
     this.initMobileMenu();
@@ -745,6 +746,347 @@ class PortfolioApp {
         }
       });
     });
+  }
+
+  // 9. Interactive 3D Particle Sphere Background (Hero Section)
+  initParticleSphere() {
+    const canvas = document.getElementById('hero-particle-sphere');
+    const heroSection = document.getElementById('home');
+    if (!canvas || !heroSection) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let particles = [];
+    let isVisible = true;
+    let animId = null;
+
+    // Rotation & mouse state
+    let rotY = 0;
+    let rotX = 0.22;
+    let targetTiltX = 0;
+    let targetTiltY = 0;
+    let currentTiltX = 0;
+    let currentTiltY = 0;
+
+    const mouse = {
+      x: null,
+      y: null,
+      active: false,
+      currentRadius: 0,
+      targetRadius: 110 // Opening radius size in pixels
+    };
+
+    // Responsive sphere configuration
+    const getSphereConfig = () => {
+      const isMobile = width < 640;
+      const isTablet = width >= 640 && width < 1024;
+      const isSmallMobile = width < 380;
+      
+      let baseR;
+      let rings;
+      let ptsPerRing;
+      let openRadius;
+
+      if (isSmallMobile) {
+        baseR = Math.min(width * 0.32, 115);
+        rings = 20;
+        ptsPerRing = 34;
+        openRadius = 55;
+      } else if (isMobile) {
+        baseR = Math.min(width * 0.34, 135);
+        rings = 24;
+        ptsPerRing = 40;
+        openRadius = 65;
+      } else if (isTablet) {
+        baseR = Math.min(width * 0.30, height * 0.32, 230);
+        rings = 32;
+        ptsPerRing = 60;
+        openRadius = 95;
+      } else {
+        // Desktop: centered holographic sphere
+        baseR = Math.min(width * 0.22, height * 0.40, 285);
+        rings = 38;
+        ptsPerRing = 70;
+        openRadius = 115;
+      }
+
+      // Perfectly centered horizontally across the viewport
+      const cx = width * 0.5;
+      // On mobile: positioned higher up as an elegant holographic crown behind the status badge & header
+      // avoiding collision with the typewriter card and heavy headline text
+      const cy = isMobile ? Math.min(height * 0.18, 175) : (isTablet ? height * 0.45 : height * 0.5);
+
+      return {
+        radius: baseR,
+        cx,
+        cy,
+        rings,
+        ptsPerRing,
+        openRadius
+      };
+    };
+
+    const buildSphere = () => {
+      particles = [];
+      const cfg = getSphereConfig();
+      const R = cfg.radius;
+      const rings = cfg.rings;
+      mouse.targetRadius = cfg.openRadius;
+
+      for (let i = 0; i <= rings; i++) {
+        // Latitude angle from 0 to PI
+        const theta = (i / rings) * Math.PI;
+        const sinTheta = Math.sin(theta);
+        const cosTheta = Math.cos(theta);
+        const ringR = R * sinTheta;
+
+        // Number of points along this ring, scaled by circumference
+        const count = Math.max(1, Math.floor(sinTheta * cfg.ptsPerRing));
+
+        for (let j = 0; j < count; j++) {
+          const phi = (j / count) * Math.PI * 2;
+          particles.push({
+            ox: ringR * Math.cos(phi),
+            oy: R * cosTheta,
+            oz: ringR * Math.sin(phi),
+            dispX: 0,
+            dispY: 0
+          });
+        }
+      }
+    };
+
+    const resize = () => {
+      const rect = heroSection.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+
+      buildSphere();
+    };
+
+    // Track mouse on hero section
+    const onMouseMove = (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.active = true;
+
+      const cfg = getSphereConfig();
+      targetTiltX = ((mouse.y - cfg.cy) / height) * 0.20;
+      targetTiltY = ((mouse.x - cfg.cx) / width) * 0.20;
+    };
+
+    const onMouseLeave = () => {
+      mouse.active = false;
+      targetTiltX = 0;
+      targetTiltY = 0;
+    };
+
+    // Touch support for mobile / tablets
+    const onTouchMove = (e) => {
+      if (e.touches && e.touches[0]) {
+        const rect = heroSection.getBoundingClientRect();
+        mouse.x = e.touches[0].clientX - rect.left;
+        mouse.y = e.touches[0].clientY - rect.top;
+        mouse.active = true;
+      }
+    };
+
+    const onTouchEnd = () => {
+      mouse.active = false;
+    };
+
+    heroSection.addEventListener('mousemove', onMouseMove, { passive: true });
+    heroSection.addEventListener('mouseleave', onMouseLeave, { passive: true });
+    heroSection.addEventListener('touchmove', onTouchMove, { passive: true });
+    heroSection.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('orientationchange', resize, { passive: true });
+
+    // ResizeObserver for rock-solid responsiveness on layout shifts
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(() => {
+        resize();
+      });
+      ro.observe(heroSection);
+    }
+
+    resize();
+
+    // Intersection observer to pause loop when scrolled away
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          isVisible = entry.isIntersecting;
+          if (isVisible && !animId) {
+            animId = requestAnimationFrame(render);
+          }
+        });
+      }, { threshold: 0.05 });
+      observer.observe(heroSection);
+    }
+
+    // Main render loop
+    const render = () => {
+      if (!isVisible) {
+        animId = null;
+        return;
+      }
+
+      ctx.clearRect(0, 0, width, height);
+
+      const isDark = document.documentElement.classList.contains('dark');
+      const cfg = getSphereConfig();
+      const R = cfg.radius;
+      const cx = cfg.cx;
+      const cy = cfg.cy;
+      const isMobile = width < 640;
+
+      // Update rotation
+      rotY += 0.0035;
+      currentTiltX += (targetTiltX - currentTiltX) * 0.05;
+      currentTiltY += (targetTiltY - currentTiltY) * 0.05;
+
+      const effectiveRotX = rotX + currentTiltX;
+      const effectiveRotY = rotY + currentTiltY;
+
+      const cosY = Math.cos(effectiveRotY);
+      const sinY = Math.sin(effectiveRotY);
+      const cosX = Math.cos(effectiveRotX);
+      const sinX = Math.sin(effectiveRotX);
+
+      // Smooth mouse opening radius
+      if (mouse.active) {
+        mouse.currentRadius += (mouse.targetRadius - mouse.currentRadius) * 0.12;
+      } else {
+        mouse.currentRadius += (0 - mouse.currentRadius) * 0.08;
+      }
+
+      const openR = mouse.currentRadius;
+      const mouseX = mouse.x;
+      const mouseY = mouse.y;
+
+      // Ambient radial glow behind sphere
+      const glowFactor = isMobile ? 1.15 : 1.35;
+      if (isDark) {
+        const glowGrad = ctx.createRadialGradient(cx, cy, R * 0.1, cx, cy, R * glowFactor);
+        glowGrad.addColorStop(0, isMobile ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0.07)');
+        glowGrad.addColorStop(0.45, isMobile ? 'rgba(255, 255, 255, 0.01)' : 'rgba(255, 255, 255, 0.02)');
+        glowGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = glowGrad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, R * glowFactor, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        const glowGrad = ctx.createRadialGradient(cx, cy, R * 0.1, cx, cy, R * glowFactor);
+        glowGrad.addColorStop(0, isMobile ? 'rgba(0, 0, 0, 0.02)' : 'rgba(0, 0, 0, 0.03)');
+        glowGrad.addColorStop(0.5, 'rgba(0, 0, 0, 0.01)');
+        glowGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = glowGrad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, R * glowFactor, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      const fov = 520;
+
+      // Render all particles
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        // 3D rotation
+        const x1 = p.ox * cosY - p.oz * sinY;
+        const z1 = p.ox * sinY + p.oz * cosY;
+        const y1 = p.oy;
+
+        const y2 = y1 * cosX - z1 * sinX;
+        const z2 = y1 * sinX + z1 * cosX;
+        const x2 = x1;
+
+        // Perspective projection
+        const scale = fov / (fov + z2);
+        const projX = cx + x2 * scale;
+        const projY = cy + y2 * scale;
+
+        // Interactive opening calculation
+        let targetDispX = 0;
+        let targetDispY = 0;
+
+        if (openR > 1 && mouseX !== null && mouseY !== null) {
+          const dx = projX - mouseX;
+          const dy = projY - mouseY;
+          const dist = Math.hypot(dx, dy);
+
+          if (dist < openR) {
+            // Push particle outward toward the opening rim with smooth easing
+            const force = Math.sin((1 - dist / openR) * (Math.PI / 2)) * (openR - dist + 16);
+            const angle = Math.atan2(dy, dx);
+            targetDispX = Math.cos(angle) * force;
+            targetDispY = Math.sin(angle) * force;
+          }
+        }
+
+        // Spring physics interpolation
+        p.dispX += (targetDispX - p.dispX) * 0.18;
+        p.dispY += (targetDispY - p.dispY) * 0.18;
+
+        const renderX = projX + p.dispX;
+        const renderY = projY + p.dispY;
+
+        // Depth-based size and opacity
+        const depthNorm = (z2 + R) / (2 * R);
+        
+        let pointSize = 1.0;
+        let alpha = 0.2;
+
+        if (isMobile) {
+          // Delicate, subtle stardust points on mobile so foreground typography remains 100% sharp
+          if (z2 >= 0) {
+            pointSize = 0.75 + depthNorm * 0.70;
+            alpha = 0.14 + depthNorm * 0.20;
+          } else {
+            pointSize = 0.50 + depthNorm * 0.35;
+            alpha = 0.04 + depthNorm * 0.08;
+          }
+        } else {
+          // Rich holographic presence on desktop & tablet
+          if (z2 >= 0) {
+            pointSize = 1.1 + depthNorm * 1.5;
+            alpha = 0.35 + depthNorm * 0.40;
+          } else {
+            pointSize = 0.75 + depthNorm * 0.55;
+            alpha = 0.10 + depthNorm * 0.22;
+          }
+        }
+
+        ctx.beginPath();
+        ctx.arc(renderX, renderY, Math.max(0.6, pointSize), 0, Math.PI * 2);
+
+        if (isDark) {
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha.toFixed(3)})`;
+        } else {
+          ctx.fillStyle = `rgba(24, 24, 27, ${(alpha * 0.85).toFixed(3)})`;
+        }
+        ctx.fill();
+      }
+
+      animId = requestAnimationFrame(render);
+    };
+
+    animId = requestAnimationFrame(render);
   }
 }
 
